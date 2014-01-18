@@ -250,17 +250,17 @@
 		
 
 		if ( type > 13 ) {
-			enemies[enemyindex]["life"] = type * 11 ;
+			enemies[enemyindex]["life"] = type * 6 ;
 		} else if ( type > 10 ) {
-			enemies[enemyindex]["life"] = type * 8 ;
+			enemies[enemyindex]["life"] = type * 3 ;
 		} else if ( type > 5 ) {
-			enemies[enemyindex]["life"] = type * 9 ;
+			enemies[enemyindex]["life"] = type * 4 ;
 		} else {
-			enemies[enemyindex]["life"] = type * 8 ;
+			enemies[enemyindex]["life"] = type * 3 ;
 		}
 
 		if ( isboss	 == 1 ) {
-			enemies[enemyindex]["life"] *= 10;
+			enemies[enemyindex]["life"] *= 5;
 		
 		} 
 
@@ -777,14 +777,15 @@
 				}
 						
 
-				// Remove lower block
+				// Remove lower block 
 				for ( i = 0 ; i < maxblock ; i++ ) {
 					if ( blocks[i]["active"] == 1 ) {
 
 
-						if ( blocks[i]["y"] > altitude_reached + 400 + (player["hyperon"] > 0 ? 400 : 0) ) {
-							blocks[i]["active"] = 0;
+						if ( blocks[i]["y"] > altitude_reached + 600 + (player["hyperon"] > 0 ? 400 : 0) ) {
+							
 
+							blocks[i]["active"] = 0;
 
 							var new_x = ( block_last_x + rand(400) - 200 + 600 ) % 600; 
 							var new_y = block_height * -block_height_gap;
@@ -884,7 +885,8 @@
 
 					if ( player["screenoffy"] != 0 ) {
 						// Gradually put back to center if not on rocket and not on center.
-						player["screenoffy"] = int_div( player["screenoffy"], 4 );
+						player["screenoffy"] *= 0.8;
+
 					}
 				}
 
@@ -1118,7 +1120,7 @@
 
 
 		player["hp"]				= 100;
-		player["fuel"]				= 0;
+		player["fuel"]				= 50;
 
 
 		bullet_size = min_bullet_size;
