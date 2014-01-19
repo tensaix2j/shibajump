@@ -740,7 +740,7 @@
 		
 		ctxt.fillText( "Fuel   : " +  player["fuel"] , 480, 560);
 		ctxt.fillText( "Power  : " +  bullet_size , 480, 575);
-		ctxt.fillText( "$ : " +  ( -altitude_reached / 10000000.0 ).toFixed(8) , 480, 590);
+		ctxt.fillText( "$ : " +  ( -altitude_reached / 2000000.0 ).toFixed(8) , 480, 590);
 
 		if ( -altitude_reached >= 10000000 ) {
 			ctxt.fillText( "You won. You can stop anytime now." , 280, 590);
