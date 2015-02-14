@@ -262,7 +262,7 @@ function Shibajump() {
 	this.checkCollisionWithPlayers = function( ei ) {
 
 		var diffx = this.enemies[ei].x - this.player.x;
-		var diffy = this.enemies[ei].y - this.player.y;
+		var diffy = this.enemies[ei].y - this.player.y + this.player.screenoffy;
 		if ( diffx * diffx + diffy * diffy < 2304 ) {
 			return 1;
 		}
@@ -887,7 +887,7 @@ function Shibajump() {
 					if ( this.control_direction[1] == 1  ) {
 					
 						this.player.screenoffy += 5;
-							
+					
 
 					} else if ( this.control_direction[3] == 1  ) {
 						
@@ -922,7 +922,7 @@ function Shibajump() {
 							
 
 							
-							this.createexplosion( this.player.x, this.player.y );
+							this.createexplosion( this.player.x, this.player.y - this.player.screenoffy );
 							this.enemies[i].active = 0;
 							
 							if ( this.player.hyperon == 0 ) {
@@ -1147,6 +1147,7 @@ function Shibajump() {
 
 		this.mp3bgmusic.play();
 
+		
 			
 	}
 
